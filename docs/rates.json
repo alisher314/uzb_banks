@@ -1,0 +1,24 @@
+[
+  {
+    "bank": "CBU (справочно)",
+    "date": "2025-10-25",
+    "rates": [
+      {
+        "ccy": "USD",
+        "buy": 12129.33,
+        "sell": 12129.33
+      },
+      {
+        "ccy": "EUR",
+        "buy": 14061.53,
+        "sell": 14061.53
+      },
+      {
+        "ccy": "RUB",
+        "buy": 149.17,
+        "sell": 149.17
+      }
+    ],
+    "source_url": "https://cbu.uz/ru/arkhiv-kursov-valyut/json/all/2025-10-25/"
+  }
+]

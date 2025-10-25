@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Курсы валют банков Узбекистана (buy/sell)</title>
+  <style>
+    :root { --bg:#0b0c10; --card:#12141a; --ink:#e8eef6; --muted:#a7b0bd; --accent:#5cc8ff; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif}
+    .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
+    h1{font-weight:700;letter-spacing:.2px;margin:0 0 12px}
+    .muted{color:var(--muted);font-size:14px}
+    .card{background:linear-gradient(180deg,#141821,#0f1218);border:1px solid #1d2430;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.35);padding:12px 12px 6px 12px;overflow:auto}
+    table{border-collapse:collapse;width:100%;min-width:720px}
+    thead th{position:sticky;top:0;background:#12151d;border-bottom:1px solid #1f2632;text-align:left;padding:12px 10px;font-size:14px;color:#cbd5e1}
+    tbody td{border-bottom:1px dashed #202735;padding:10px}
+    .bank{font-weight:600}
+    .ccy{white-space:nowrap}
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:#1a2330;border:1px solid #2a3342;font-size:12px}
+    .src a{color:var(--accent);text-decoration:none}
+    .src a:hover{text-decoration:underline}
+    .footer{margin-top:16px;color:#a7b0bd;font-size:13px}
+    .grid{display:grid;grid-template-columns: 1fr auto;gap:8px;align-items:center;margin-bottom:12px}
+    .badge{font-size:12px;border:1px solid #253044;background:#121924;border-radius:8px;padding:4px 8px;color:#b8c2cf}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid">
+      <h1>Курсы валют банков Узбекистана — покупка/продажа</h1>
+      <div class="badge" id="updated">Загрузка…</div>
+    </div>
+    <p class="muted">Данные агрегируются раз в день из публичных страниц банков. Показаны USD / EUR / RUB. Для справки рядом можно добавить официальный курс ЦБ РУз.</p>
+
+    <div class="card">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th>Банк</th>
+            <th class="ccy">USD (buy / sell)</th>
+            <th class="ccy">EUR (buy / sell)</th>
+            <th class="ccy">RUB (buy / sell)</th>
+            <th>Дата</th>
+            <th>Источник</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <span>Последнее обновление файла: <span id="stamp">—</span></span>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
