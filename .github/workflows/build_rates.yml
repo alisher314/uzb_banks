@@ -1,0 +1,30 @@
+name: Build rates.json daily
+
+on:
+  schedule:
+    - cron: '20 4 * * *'   # 04:20 UTC = 09:20 Asia/Tashkent (UTC+5)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -V
+      - run: pip install -r requirements.txt
+      - name: Build rates.json
+        run: python tools/build_rates.py
+      - name: Commit rates.json
+        run: |
+          git config user.name "auto-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add public/rates.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: daily rates.json"
+            git push
+          fi
